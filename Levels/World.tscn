@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bi1ck74mdj57c" path="res://World/Grass.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://bhyyj3q6t2fip" path="res://assets/World/GrassBackground.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://pbw3jvd14uet" path="res://Bat.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://HeartsUI.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://World/Tree.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://bdnpr4lhkf1vl" path="res://World/Coin.tscn" id="9_0qgdj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wonxj"]
 resource_name = "Dirt Path"
@@ -938,12 +938,6 @@ position = Vector2(23.0355, 140.353)
 [node name="Tree2" parent="Node2D" instance=ExtResource("9")]
 position = Vector2(160.025, 78.2192)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HeartsUI" parent="CanvasLayer" instance=ExtResource("8")]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 89.0
-offset_bottom = 15.0
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("9_0qgdj")]
+position = Vector2(-72, 72)
+scale = Vector2(2, 2)

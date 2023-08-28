@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfmff7cv2xin5" path="res://assets/Player/Player.png" id="1"]
 [ext_resource type="Script" path="res://Player.gd" id="2"]
-[ext_resource type="PackedScene" path="res://Hitbox.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cxenjfoel5xbu" path="res://Hitbox.tscn" id="3"]
 [ext_resource type="Script" path="res://SwordHitbox.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://835lctc2h01s" path="res://Hurtbox.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://ce3asisuosiv2" path="res://assets/Shadows/MediumShadow.png" id="6"]
@@ -735,8 +735,8 @@ graph_offset = Vector2(181, 56)
 height = 34.0
 
 [sub_resource type="CapsuleShape2D" id="47"]
-radius = 2.03218
-height = 4.06436
+radius = 3.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2

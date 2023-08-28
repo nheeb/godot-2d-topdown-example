@@ -5,7 +5,7 @@ extends Node
 
 signal no_health
 signal health_changed(value)
-
+ 
 func set_health(value):
 	health = value
 	emit_signal("health_changed", health)

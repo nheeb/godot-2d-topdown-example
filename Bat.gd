@@ -37,7 +37,7 @@ func process_knockback(delta: float):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_friction * delta)
 	set_velocity(knockback)
 	move_and_slide()
-	knockback = _velocity
+	knockback = velocity
 
 func process_statemachine(delta: float):
 	match state:
@@ -84,11 +84,13 @@ func process_soft_collision(delta: float):
 	move_and_slide()
 	_velocity = velocity
 
-func _on_Hurtbox_area_entered(area: Area2D) -> void:
+func _on_hurtbox_area_entered(area: Area2D) -> void:
 	stats.health -= area.damage
 	knockback = global_position - area.origin_position
+	print(knockback)
 	knockback = knockback.normalized() + area.hit_direction
 	knockback = knockback.normalized() * knockback_speed
+	print(knockback)
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health() -> void:
@@ -101,6 +103,5 @@ func die():
 	deathEffect.global_position = global_position
 
 
-func _on_hurtbox_area_entered(area):
-	print("!")
-	_on_Hurtbox_area_entered(area)
+func _on_hitbox_area_entered(area):
+	area.emit_signal("area_entered", $Hitbox)
