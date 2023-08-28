@@ -1,113 +1,127 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=21 format=3 uid="uid://pbw3jvd14uet"]
 
-[ext_resource path="res://assets/Enemies/Bat.png" type="Texture" id=1]
-[ext_resource path="res://assets/Shadows/SmallShadow.png" type="Texture" id=2]
-[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Bat.gd" type="Script" id=4]
-[ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
-[ext_resource path="res://PlayerDetection.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://SoftCollision.tscn" type="PackedScene" id=8]
-[ext_resource path="res://WanderController.tscn" type="PackedScene" id=9]
+[ext_resource type="Texture2D" uid="uid://dgivrlrbsh6t" path="res://assets/Enemies/Bat.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://di8e36pspt23m" path="res://assets/Shadows/SmallShadow.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://835lctc2h01s" path="res://Hurtbox.tscn" id="3"]
+[ext_resource type="Script" path="res://Bat.gd" id="4"]
+[ext_resource type="PackedScene" path="res://Stats.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://PlayerDetection.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Hitbox.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://SoftCollision.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://WanderController.tscn" id="9"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 24 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 24 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(16, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 24 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 16, 24 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 16, 24 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 16, 24)
 
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}],
 "loop": true,
-"name": "Animate",
+"name": &"Animate",
 "speed": 10.0
-} ]
+}]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id="7"]
 radius = 4.0
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 7.0
-height = 6.0
+[sub_resource type="CapsuleShape2D" id="8"]
+radius = 9.0
+height = 18.0
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id="9"]
 radius = 58.0345
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id="10"]
 radius = 4.12311
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id="11"]
 radius = 4.49323
 
-[node name="Bat" type="KinematicBody2D"]
+[node name="Bat" type="CharacterBody2D"]
 collision_layer = 0
-script = ExtResource( 4 )
+script = ExtResource("4")
 knockback_speed = 160
 
-[node name="SmallShadow" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="SmallShadow" type="Sprite2D" parent="."]
+texture = ExtResource("2")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -12 )
-frames = SubResource( 6 )
-animation = "Animate"
-frame = 4
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("6")
+animation = &"Animate"
+autoplay = "Animate"
+frame_progress = 0.10495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 7 )
+shape = SubResource("7")
 
-[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
-visible = false
+[node name="Hurtbox" parent="." instance=ExtResource("3")]
 collision_layer = 8
-hit_offset = Vector2( 0, -12 )
+hit_offset = Vector2(0, -12)
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -14 )
-shape = SubResource( 8 )
+position = Vector2(0, -14)
+shape = SubResource("8")
 
-[node name="Stats" parent="." instance=ExtResource( 5 )]
+[node name="Stats" parent="." instance=ExtResource("5")]
 max_health = 3
 
-[node name="PlayerDetection" parent="." instance=ExtResource( 6 )]
+[node name="PlayerDetection" parent="." instance=ExtResource("6")]
 visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
-modulate = Color( 1, 1, 1, 0.219608 )
-position = Vector2( 0, -11 )
-shape = SubResource( 9 )
+modulate = Color(1, 1, 1, 0.219608)
+position = Vector2(0, -11)
+shape = SubResource("9")
 
-[node name="Hitbox" parent="." instance=ExtResource( 7 )]
+[node name="Hitbox" parent="." instance=ExtResource("7")]
 visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, -14 )
-shape = SubResource( 10 )
+position = Vector2(0, -14)
+shape = SubResource("10")
 
-[node name="SoftCollision" parent="." instance=ExtResource( 8 )]
+[node name="SoftCollision" parent="." instance=ExtResource("8")]
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-shape = SubResource( 11 )
+shape = SubResource("11")
 
-[node name="WanderController" parent="." instance=ExtResource( 9 )]
+[node name="WanderController" parent="." instance=ExtResource("9")]
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="Hurtbox"]

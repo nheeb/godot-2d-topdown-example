@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvxfpjta5blwc"]
+
+[ext_resource type="PackedScene" path="res://Player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://World/Bush.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://j8lo8c0pvncy" path="res://assets/World/DirtTileset.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://quinseo87qma" path="res://assets/World/CliffTileset.png" id="4"]
+[ext_resource type="PackedScene" path="res://World/Grass.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://bhyyj3q6t2fip" path="res://assets/World/GrassBackground.png" id="6"]
+[ext_resource type="PackedScene" path="res://Bat.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://HeartsUI.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://World/Tree.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://Chest.tscn" id="10"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wonxj"]
+texture = ExtResource("3")
+
+[sub_resource type="TileSet" id="1"]
+sources/0 = SubResource("TileSetAtlasSource_wonxj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1hxy"]
+texture = ExtResource("4")
+
+[sub_resource type="TileSet" id="49"]
+sources/0 = SubResource("TileSetAtlasSource_a1hxy")
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(44.7676, 35.4132)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("6")
+offset = Vector2(-1, 5)
+region_enabled = true
+region_rect = Rect2(0, 0, 3200, 1800)
+
+[node name="DirtPath" type="TileMap" parent="."]
+tile_set = SubResource("1")
+format = 2
+
+[node name="Cliff" type="TileMap" parent="."]
+tile_set = SubResource("49")
+format = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Player" parent="Node2D" instance=ExtResource("1")]
+position = Vector2(44.7676, 35.4132)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Bushes" type="Node2D" parent="Node2D"]
+
+[node name="Bush2" parent="Node2D/Bushes" instance=ExtResource("2")]
+position = Vector2(132.11, 21.953)
+
+[node name="Bush3" parent="Node2D/Bushes" instance=ExtResource("2")]
+position = Vector2(147.191, 138.029)
+
+[node name="Bush" parent="Node2D/Bushes" instance=ExtResource("2")]
+position = Vector2(54.0895, 75.943)
+
+[node name="Grass" type="Node2D" parent="Node2D"]
+
+[node name="Grass2" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(54.9407, 114.452)
+
+[node name="Grass3" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(71.4221, 97.9702)
+
+[node name="Grass4" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(36.961, 115.201)
+
+[node name="Grass" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(81.8358, 130.796)
+
+[node name="Grass5" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(15.6533, 97.1881)
+
+[node name="Grass6" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(115.002, 137.847)
+
+[node name="Grass7" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(151.771, 151.282)
+
+[node name="Grass8" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(132.679, 150.221)
+
+[node name="Grass9" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(95.9099, 112.744)
+
+[node name="Grass10" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(176.167, 33.5485)
+
+[node name="Grass11" parent="Node2D/Grass" instance=ExtResource("5")]
+position = Vector2(175.813, 49.4584)
+
+[node name="Bat2" parent="Node2D" instance=ExtResource("7")]
+position = Vector2(209.377, 110.817)
+
+[node name="Bat3" parent="Node2D" instance=ExtResource("7")]
+position = Vector2(224.467, 114.072)
+
+[node name="Bat4" parent="Node2D" instance=ExtResource("7")]
+position = Vector2(212.632, 131.824)
+
+[node name="Bat" parent="Node2D" instance=ExtResource("7")]
+position = Vector2(64.4667, 152.962)
+
+[node name="Tree" parent="Node2D" instance=ExtResource("9")]
+position = Vector2(23.0355, 140.353)
+
+[node name="Tree2" parent="Node2D" instance=ExtResource("9")]
+position = Vector2(160.025, 78.2192)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HeartsUI" parent="CanvasLayer" instance=ExtResource("8")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 89.0
+offset_bottom = 15.0
+
+[node name="Chest" parent="." instance=ExtResource("10")]
+position = Vector2(71.535, 33.6532)

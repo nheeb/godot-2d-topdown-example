@@ -1,7 +1,7 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 func _ready() -> void:
-	self.connect("animation_finished", self, "_on_animation_finished")
+	self.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	frame = 0
 	play("Animate")
 

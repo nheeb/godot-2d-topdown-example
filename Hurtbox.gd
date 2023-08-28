@@ -2,14 +2,17 @@ extends Area2D
 
 const HitEffect = preload("res://Effects/HitEffect.tscn")
 
-export var show_hit := true
-export var hit_offset := Vector2.ZERO
+@export var show_hit := true
+@export var hit_offset := Vector2.ZERO
 
-var invincible := false setget set_invincible
-onready var timer := $Timer
+var invincible := false: set = set_invincible
+@onready var timer := $Timer
 
 signal invinc_start
 signal invinc_end
+
+func _ready():
+	set_invincible(false)
 
 func set_invincible(value):
 	invincible = value
@@ -24,7 +27,7 @@ func start_invinc(duration):
 
 func create_hit_effect():
 	if show_hit:
-		var hitEffect = HitEffect.instance()
+		var hitEffect = HitEffect.instantiate()
 		var main = get_tree().current_scene
 		main.add_child(hitEffect)
 		hitEffect.global_position = global_position + hit_offset
