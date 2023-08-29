@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvxfpjta5blwc"]
+[gd_scene load_steps=12 format=3 uid="uid://bvxfpjta5blwc"]
 
 [ext_resource type="PackedScene" uid="uid://c66cxyllxjd4b" path="res://GameLogic/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://2sup57xkyftg" path="res://World/Bush.tscn" id="2"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://quinseo87qma" path="res://assets/World/CliffTileset.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://bi1ck74mdj57c" path="res://World/Grass.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://bhyyj3q6t2fip" path="res://assets/World/GrassBackground.png" id="6"]
-[ext_resource type="PackedScene" uid="uid://pbw3jvd14uet" path="res://Enemies/Bat.tscn" id="8_uvxvc"]
 [ext_resource type="PackedScene" path="res://World/Tree.tscn" id="9"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wonxj"]
@@ -997,6 +996,3 @@ position = Vector2(-112, 72)
 position = Vector2(160.025, 78.2192)
 
 [node name="Enemies" type="Node2D" parent="Node2D"]
-
-[node name="Bat" parent="Node2D/Enemies" instance=ExtResource("8_uvxvc")]
-position = Vector2(272, -136)

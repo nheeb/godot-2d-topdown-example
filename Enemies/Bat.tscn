@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dgivrlrbsh6t" path="res://assets/Enemies/Bat.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://di8e36pspt23m" path="res://assets/Shadows/SmallShadow.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://835lctc2h01s" path="res://Hurtbox.tscn" id="3"]
-[ext_resource type="Script" path="res://Bat.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://c6wqgba7kc20o" path="res://Stats.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://PlayerDetection.tscn" id="6"]
-[ext_resource type="PackedScene" uid="uid://cxenjfoel5xbu" path="res://Hitbox.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://SoftCollision.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://WanderController.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://835lctc2h01s" path="res://GameLogic/Hurtbox.tscn" id="3"]
+[ext_resource type="Script" path="res://Enemies/Bat.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://c6wqgba7kc20o" path="res://GameLogic/Stats.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://GameLogic/PlayerDetection.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cxenjfoel5xbu" path="res://GameLogic/Hitbox.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://GameLogic/SoftCollision.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://GameLogic/WanderController.tscn" id="9"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")

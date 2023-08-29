@@ -73,7 +73,7 @@ func seek_player():
 	if player_detection.can_see_player():
 		state = CHASE
 
-func process_soft_collision(delta: float):
+func process_soft_collision(_delta: float):
 	if soft_collision.is_colliding():
 		_velocity += soft_collision.get_push_vector() * 5
 	if _velocity.x < 0 :
@@ -87,10 +87,10 @@ func process_soft_collision(delta: float):
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	stats.health -= area.damage
 	knockback = global_position - area.origin_position
-	print(knockback)
+
 	knockback = knockback.normalized() + area.hit_direction
 	knockback = knockback.normalized() * knockback_speed
-	print(knockback)
+
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health() -> void:

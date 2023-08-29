@@ -88,7 +88,7 @@ func move():
 	_velocity = velocity
 
 
-func _on_Hurtbox_area_entered(area: Area2D) -> void:
+func _on_Hurtbox_area_entered(_area: Area2D) -> void:
 	stats.health -= 1
 	hurtbox.start_invinc(invinc_time)
 	hurtbox.create_hit_effect()

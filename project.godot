@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerStats="*res://PlayerStats.tscn"
+PlayerStats="*res://GameLogic/PlayerStats.tscn"
 Ui="*res://UI.tscn"
 
 [debug]

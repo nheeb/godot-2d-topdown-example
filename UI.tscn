@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvec75x0jbqd"]
 
-[ext_resource type="PackedScene" uid="uid://bqk0olqc2llgh" path="res://HeartsUI.tscn" id="1_yykeb"]
+[ext_resource type="PackedScene" uid="uid://bqk0olqc2llgh" path="res://GameLogic/HeartsUI.tscn" id="1_b04lw"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,11 +11,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[node name="HeartsUI" parent="CanvasLayer" instance=ExtResource("1_yykeb")]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 89.0
-offset_bottom = 15.0
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+
+[node name="HeartsUI" parent="CanvasLayer/CanvasLayer" instance=ExtResource("1_b04lw")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+
+[editable path="CanvasLayer/CanvasLayer/HeartsUI"]
