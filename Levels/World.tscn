@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvxfpjta5blwc"]
+[gd_scene load_steps=14 format=3 uid="uid://bvxfpjta5blwc"]
 
 [ext_resource type="PackedScene" uid="uid://c66cxyllxjd4b" path="res://GameLogic/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://2sup57xkyftg" path="res://World/Bush.tscn" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bhyyj3q6t2fip" path="res://assets/World/GrassBackground.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://pbw3jvd14uet" path="res://Enemies/Bat.tscn" id="8_uvxvc"]
 [ext_resource type="PackedScene" path="res://World/Tree.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://bdnpr4lhkf1vl" path="res://World/Coin.tscn" id="9_swjas"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wonxj"]
 resource_name = "Dirt Path"
@@ -1000,3 +1001,26 @@ position = Vector2(160.025, 78.2192)
 
 [node name="Bat" parent="Node2D/Enemies" instance=ExtResource("8_uvxvc")]
 position = Vector2(272, -136)
+
+[node name="Coins" type="Node2D" parent="Node2D"]
+
+[node name="Coin" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-136, 216)
+
+[node name="Coin2" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-136, 200)
+
+[node name="Coin3" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-152, 200)
+
+[node name="Coin4" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-152, 216)
+
+[node name="Coin5" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-120, -232)
+
+[node name="Coin6" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-104, -232)
+
+[node name="Coin7" parent="Node2D/Coins" instance=ExtResource("9_swjas")]
+position = Vector2(-88, -232)

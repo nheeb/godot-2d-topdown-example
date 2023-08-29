@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://byirn5nw352gi" path="res://assets/World/coin.png" id="1_801n2"]
 [ext_resource type="Script" path="res://World/Coin.gd" id="2_wja2b"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ivft"]
+radius = 6.0
+height = 20.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tb50"]
 atlas = ExtResource("1_801n2")
 region = Rect2(0, 0, 8, 8)
@@ -135,15 +139,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ivft"]
-radius = 6.0
-height = 16.0
-
-[node name="Coin" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_c0f7u")
-autoplay = "default"
-frame_progress = 0.7431
-flip_h = true
+[node name="Coin" type="Node2D"]
 script = ExtResource("2_wja2b")
 
 [node name="Range" type="Area2D" parent="."]
@@ -152,5 +148,11 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CapsuleShape2D_0ivft")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c0f7u")
+autoplay = "default"
+frame_progress = 0.7431
+flip_h = true
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

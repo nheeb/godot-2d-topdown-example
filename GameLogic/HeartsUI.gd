@@ -18,3 +18,5 @@ func _ready():
 	self.hearts = PlayerStats.health
 	#PlayerStats.connect("health_changed", Callable(self, "set_hearts"))
 	PlayerStats.health_changed.connect(set_hearts)
+	if get_tree().current_scene.name != "World":
+		visible = false
